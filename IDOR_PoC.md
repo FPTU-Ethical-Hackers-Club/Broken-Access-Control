@@ -1,5 +1,7 @@
 # KBID 268 - Insecure direct object references
 
+#### Created by [Glenn ten Cate](https://github.com/blabla1337/skf-labs)
+
 ## Running the app
 
 ```
