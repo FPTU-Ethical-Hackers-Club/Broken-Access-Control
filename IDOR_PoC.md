@@ -33,7 +33,7 @@ $ python3 <labname>
 {% endhint %}
 
 
-![](.gitbook/assets/screen-shot-2019-03-04-at-21.33.32.png)
+![image](https://user-images.githubusercontent.com/61876488/139566394-a7266859-d2d0-44d1-a5ab-9aef7fdb3a96.png)
 
 ## Reconnaissance
 
@@ -57,19 +57,19 @@ Step 1:
 
 The application allows the user to create a PDF file and retrieve the file with the index assigned to it:
 
-![](.gitbook/assets/idor1.png)
+![image](https://user-images.githubusercontent.com/61876488/139566407-5a4fe2a3-4603-40b4-8e88-486cac2bb76c.png)
 
 HTTP Request for Document Creation:
 
-![](.gitbook/assets/idor2.png)
+![image](https://user-images.githubusercontent.com/61876488/139566412-7835f56b-62b5-422e-84ec-aa1a771f68bb.png)
 
-![](.gitbook/assets/idor3.png)
+![image](https://user-images.githubusercontent.com/61876488/139566416-1d66bc01-8995-4437-b15d-85a8ab823a2e.png)
 
 Step 2:
 
 Let's try to brute force if we can access other documents by fuzzing the index, consider the index ID=2000 for example:
 
-![](.gitbook/assets/idor4.png)
+![image](https://user-images.githubusercontent.com/61876488/139566479-c27443a7-b8e8-4269-883e-fcaa988a5aec.png)
 
 Ok, that's a good start so now we atleast know the index value falls between 1-1500.
 
@@ -80,17 +80,15 @@ Please refer to the following link to configure burp suite for automating fuzzin
 https://www.hackingarticles.in/beginners-guide-burpsuite-payloads-part-1/
 ```
 
-![](.gitbook/assets/idor5.png)
-
-![](.gitbook/assets/idor5(1).png)
+![image](https://user-images.githubusercontent.com/61876488/139566485-26b21458-4b3c-4563-9bce-e91ae037b33f.png)
 
 So from the fuzzing results, if we observe closesly the index ID="51" seems interesting as the other ID's seem to have the same response length. Let's check what do we achieve with ID=51.
 
-![](.gitbook/assets/idor6.png)
+![image](https://user-images.githubusercontent.com/61876488/139566489-dca5828b-3a79-434b-bbb5-c0d531c51f89.png)
 
-![](.gitbook/assets/idor7.png)
+![image](https://user-images.githubusercontent.com/61876488/139566493-6fe815bf-497d-47df-a362-7c8b55d5b0f0.png)
 
-![](.gitbook/assets/idor8.png)
+![image](https://user-images.githubusercontent.com/61876488/139566497-1ff2ff51-6e72-4ceb-a99d-8dae7768eff6.png)
 
 And we captured the right flag :-\), so we could access the document belonging to some other user bypassing access controls of the application.
 
