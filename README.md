@@ -27,3 +27,5 @@
   - [Insecure direct object references](https://portswigger.net/web-security/access-control/lab-insecure-direct-object-references)
 
 - [Sử dụng extension Autorize và AutoRepeater của Burp Suite để tự động test các lỗi Broken Access Control](https://www.youtube.com/watch?v=3K1-a7dnA60&t=572s&ab_channel=ST%C3%96K)
+
+- [Hướng dẫn cài Autorize và AutoRepeater]()
